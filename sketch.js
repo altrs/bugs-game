@@ -1,5 +1,3 @@
-//if freebugs is empty ???
-
 //assets
 let preintro_gif;
 let titlescreen_png;
@@ -96,7 +94,6 @@ function preload() {
   
   glasses_gif = createImg('scenes/1.gif', 'glasses gif');
   
-
 }
 
 

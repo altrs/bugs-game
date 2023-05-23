@@ -98,7 +98,8 @@ function preload() {
 
 
 function setup() {
-  createCanvas(600, 400);
+  const canvas = createCanvas(600, 400);
+  canvas.parent("canvas-container"); 
   cursor('mouse.png', 20, 20);
   
   getAudioContext().suspend();
@@ -233,8 +234,8 @@ function draw() {
       intro();
       preintro_gif.hide();
       image(titlescreen_png, 0, 0);
-      image(titleVideo, 0, 0);
-      titleVideo.play();
+      //image(titleVideo, 0, 0);
+      //titleVideo.play();
       bx = startButton.x;
       by = startButton.y;
       

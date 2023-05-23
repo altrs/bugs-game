@@ -98,8 +98,7 @@ function preload() {
 
 
 function setup() {
-  const canvas = createCanvas(600, 400);
-  canvas.parent("canvas-container"); 
+  createCanvas(600, 400);
   cursor('mouse.png', 20, 20);
   
   getAudioContext().suspend();
@@ -494,3 +493,13 @@ function vidLoad() {
   titleVideo.loop();
   outVideo.loop();
 }
+
+
+
+document.documentElement.focus();
+document.onkeydown = keyDown;
+document.getElementById("test").onclick = clicked;
+
+
+
+

@@ -234,7 +234,7 @@ function draw() {
       preintro_gif.hide();
       image(titlescreen_png, 0, 0);
       image(titleVideo, 0, 0);
-      //titleVideo.play();
+      titleVideo.play();
       bx = startButton.x;
       by = startButton.y;
       

@@ -50,6 +50,82 @@ let titleVideo;
 
 let sound;
 
+//ARROW KEY SIMULATION
+
+document.documentElement.focus();
+document.getElementById("test").focus();
+
+document.onkeydown = keyDown;
+document.getElementById("test").onclick = clicked;
+
+function keyDown(evt)
+{
+    var key;
+    var el  =  document.getElementById("test");
+
+    if(!evt)
+    {
+        evt = window.event;
+        if(!evt.which)
+        {
+            key  =  evt.keyCode;   
+        }
+    }else if(evt)
+    {
+        key = evt.which;   
+    } 
+}
+
+function clicked(evt)
+{
+    var el;
+    if(!evt)
+    {
+        evt = window.event;
+        el = evt.srcElement;    
+    }else  if(evt)
+    {
+        el = evt.target;   
+    }
+    switch(el.id)
+    {
+        case "left":
+        fireKey(el);
+        break;   
+        case "right":
+        fireKey(el);
+        break;     
+    }
+}
+
+function fireKey(el)
+{
+    var key;
+    switch(el.id)
+    {
+        case "left":
+        key = 37;
+        break;
+        case "right":
+        key = 39;
+        break;    
+    }
+    if(document.createEventObject)
+    {
+        var eventObj = document.createEventObject();
+        eventObj.keyCode = key;
+        el.fireEvent("onkeydown", eventObj);   
+    }else if(document.createEvent)
+    {
+        var eventObj = document.createEvent("Events");
+        eventObj.initEvent("keydown", true, true);
+        eventObj.which = key;
+        el.dispatchEvent(eventObj);
+    } 
+}
+
+//ARROW KEY SIMULATION
+
 function preload() {
     
   titleVideo = createVideo(['title.mp4'],vidLoad);
@@ -492,96 +568,6 @@ function mousePressed(){
 function vidLoad() {
   titleVideo.loop();
   outVideo.loop();
-}
-
-
-
-document.documentElement.focus();
-document.onkeydown = keyDown;
-document.getElementById("test").onclick = clicked;
-
-function keyDown(evt)
-{
-    var key;
-    var el  =  document.getElementById("test");
-    var left;
-    if(!evt)
-    {
-        evt = window.event;
-        if(!evt.which)
-        {
-            key  =  evt.keyCode;   
-        }
-    }else if(evt)
-    {
-        key = evt.which;   
-    }
-    if(el.style.left)
-    {
-        left = parseInt(el.style.left, 10);  
-    }else if(!el.style.left)
-    {
-        left = 0;    
-    }    
-    switch(key)
-    {
-        case 37:
-        left -= 10;
-        el.style['left'] = left + "px";
-        break;     
-        case  39:
-         left += 10;
-        el.style['left'] = left + "px";
-        break;     
-    }
-}
-
-function clicked(evt)
-{
-    var el;
-    if(!evt)
-    {
-        evt = window.event;
-        el = evt.srcElement;    
-    }else  if(evt)
-    {
-        el = evt.target;   
-    }
-    switch(el.id)
-    {
-        case "left":
-        fireKey(el);
-        break;   
-        case "right":
-        fireKey(el);
-        break;     
-    }
-}
-
-function fireKey(el)
-{
-    var key;
-    switch(el.id)
-    {
-        case "left":
-        key = 37;
-        break;
-        case "right":
-        key = 39;
-        break;    
-    }
-    if(document.createEventObject)
-    {
-        var eventObj = document.createEventObject();
-        eventObj.keyCode = key;
-        el.fireEvent("onkeydown", eventObj);   
-    }else if(document.createEvent)
-    {
-        var eventObj = document.createEvent("Events");
-        eventObj.initEvent("keydown", true, true);
-        eventObj.which = key;
-        el.dispatchEvent(eventObj);
-    } 
 }
 
 

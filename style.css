@@ -11,17 +11,17 @@ canvas {
 
 div#test
 {
-    width: 50px;
-    height: 50px;
+    width: 150px;
+    height: 150px;
     background-color: #FF0000;
     position: relative;   
-    bottom: 0px;
-    right: 0px;
+    top: 0px;
+    left: 0px;
 }
 
 div#test div
 {
-    width: 100%;
+    width: 50%;
     height: 100%;
     float: left;   
 }

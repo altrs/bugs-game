@@ -11,8 +11,8 @@ canvas {
 
 div#test
 {
-    width: 150px;
-    height: 150px;
+    width: 50px;
+    height: 50px;
     background-color: #FF0000;
     position: relative;   
     bottom: 0px;
@@ -21,8 +21,8 @@ div#test
 
 div#test div
 {
-    width: 50%;
-    height: 50%;
+    width: 100%;
+    height: 100%;
     float: left;   
 }
 

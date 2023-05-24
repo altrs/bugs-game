@@ -361,23 +361,25 @@ function handleTouchStart(event) {
   var screenWidth = window.innerWidth; // Width of the screen
 
   // Compare touch position with screen width to determine which side was touched
-  if (touchX < screenWidth / 2) {
-    // Left side of the screen was touched
-    console.log('Left side touched');
-    if (current.target1 != null) {
-        current = current.target1;
-      } else {
-        current.exit();
-      }
-  } else {
-    // Right side of the screen was touched
-    console.log('Right side touched');
-    if (current.target2 != null) {
-        current = current.target2;
-      } else {
-        scene = 3;
-        console.log('EXITING DOWN');
-      }
+  if (textScene) {
+    if (touchX < screenWidth / 2) {
+      // Left side of the screen was touched
+      console.log('Left side touched');
+      if (current.target1 != null) {
+          current = current.target1;
+        } else {
+          current.exit();
+        }
+    } else {
+      // Right side of the screen was touched
+      console.log('Right side touched');
+      if (current.target2 != null) {
+          current = current.target2;
+        } else {
+          scene = 3;
+          console.log('EXITING DOWN');
+        }
+    }
   }
 }
 

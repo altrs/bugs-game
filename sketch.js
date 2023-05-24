@@ -50,81 +50,6 @@ let titleVideo;
 
 let sound;
 
-//ARROW KEY SIMULATION
-
-document.documentElement.focus();
-document.getElementById("test").focus();
-
-document.onkeydown = keyDown;
-document.getElementById("test").onclick = clicked;
-
-function keyDown(evt)
-{
-    var key;
-    var el  =  document.getElementById("test");
-
-    if(!evt)
-    {
-        evt = window.event;
-        if(!evt.which)
-        {
-            key  =  evt.keyCode;   
-        }
-    }else if(evt)
-    {
-        key = evt.which;   
-    } 
-}
-
-function clicked(evt)
-{
-    var el;
-    if(!evt)
-    {
-        evt = window.event;
-        el = evt.srcElement;    
-    }else  if(evt)
-    {
-        el = evt.target;   
-    }
-    switch(el.id)
-    {
-        case "left":
-        fireKey(el);
-        break;   
-        case "right":
-        fireKey(el);
-        break;     
-    }
-}
-
-function fireKey(el)
-{
-    var key;
-    switch(el.id)
-    {
-        case "left":
-        key = 37;
-        break;
-        case "right":
-        key = 39;
-        break;    
-    }
-    if(document.createEventObject)
-    {
-        var eventObj = document.createEventObject();
-        eventObj.keyCode = key;
-        el.fireEvent("onkeydown", eventObj);   
-    }else if(document.createEvent)
-    {
-        var eventObj = document.createEvent("Events");
-        eventObj.initEvent("keydown", true, true);
-        eventObj.which = key;
-        el.dispatchEvent(eventObj);
-    } 
-}
-
-//ARROW KEY SIMULATION
 
 function preload() {
     
@@ -259,9 +184,6 @@ function draw() {
   
   console.log(scene);
   
-  preintro_gif.position(0, 0);
-  image(preintro_gif, 0, 0);
-  
   //hiding
   titleVideo.hide();
   outVideo.hide();
@@ -303,6 +225,9 @@ function draw() {
   }else{
     noCatchingBugs = false;
   }
+
+  preintro_gif.position(window.innerWidth/2-300, 0);
+  image(preintro_gif, 0, 0);
 
   switch (scene) {
     case 1:
@@ -410,28 +335,26 @@ function draw() {
 
 
 function keyPressed() {
-  
-  if(textScene){
-    
+  if (textScene) {
     if (keyCode === LEFT_ARROW) {
-      if (current.target1 != null) { // Make sure valid option exists.
-        current = current.target1;  // go to next story section
-      } else {current.exit();}
+      if (current.target1 != null) {
+        current = current.target1;
+      } else {
+        current.exit();
+      }
     }
-    
+
     if (keyCode === RIGHT_ARROW) {
-      if (current.target2 != null) { // Make sure a valid option exists
-        current = current.target2;   // Advance to next story section
-      }else {
-        //current.exit();
+      if (current.target2 != null) {
+        current = current.target2;
+      } else {
         scene = 3;
         console.log('EXITING DOWN');
       }
     }
-    
   }
-  
 }
+
 
 class Button {
   constructor(x, y, r, e) {

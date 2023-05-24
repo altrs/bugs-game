@@ -7,7 +7,6 @@ let outside_png;
 let inside_png;
 let outsideBattle_gif;
 let insideBattle_gif;
-
 let sparkle_png;
 let glasses_gif;
 
@@ -44,10 +43,10 @@ let b0, b1, b2, b3, b4, b5, b6, b7,b8, b9, b10, b11, b12, b13, b14;
 let bug1_img, bug2_img, bug3_img, bug4_img, bug5_img, bug6_img, bug7_img, bug8_img, bug9_img, bug10_img, bug11_img, bug12_img, bug13_img, bug14_img, bug15_img;
 let noCatchingBugs = false;
 
+//vid and sound
 let outVid = false;
 let outVideo;
 let titleVideo;
-
 let sound;
 
 
@@ -352,6 +351,33 @@ function keyPressed() {
         console.log('EXITING DOWN');
       }
     }
+  }
+}
+
+document.addEventListener('touchstart', handleTouchStart, false);
+
+function handleTouchStart(event) {
+  var touchX = event.touches[0].clientX; // X-coordinate of the touch event
+  var screenWidth = window.innerWidth; // Width of the screen
+
+  // Compare touch position with screen width to determine which side was touched
+  if (touchX < screenWidth / 2) {
+    // Left side of the screen was touched
+    console.log('Left side touched');
+    if (current.target1 != null) {
+        current = current.target1;
+      } else {
+        current.exit();
+      }
+  } else {
+    // Right side of the screen was touched
+    console.log('Right side touched');
+    if (current.target2 != null) {
+        current = current.target2;
+      } else {
+        scene = 3;
+        console.log('EXITING DOWN');
+      }
   }
 }
 

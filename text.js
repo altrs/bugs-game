@@ -5,10 +5,10 @@ function createInnerMonologueText(){
   im7 = new StorySection("Yes, yes. Bugs, mystical creatures they are... I'm pretty fond of those little creatures...", "Me as well", im8, "I could take or leave them ...", im9);
     im6 = new StorySection("Ho ho! Perhaps you do!", 'ENTER GAME', null, '', null);
     im5 = new StorySection("You got a good point there...", "ENTER GAME", null, " ", null);
-    im4 = new StorySection("A great question, naive one... things unbeknownst too man... Like bugs!", "I think Ive got a good understanding of bugs...", im6, "Youre Right!", im7);
-    im3 = new StorySection("Why yes! You never know what lurks just beyond sight...", "Like what?", im4, 'Maybe you should be more wary of whats visible right infront of you.', im5);
-    im2 = new StorySection("Im glad we agree on this. A humbling experience it is to live this life.", "Enter game", null , "", null);
-    im1 = new StorySection("Its a wild wild world out there...", "Agreed.", im2, "You think?", im3);
+    im4 = new StorySection("A great question, naive one... things unbeknownst too man... Like bugs!", "I think I've got a good understanding of bugs...", im6, "You\'re Right!", im7);
+    im3 = new StorySection("Why yes! You never know what lurks just beyond sight...", "Like what?", im4, 'Maybe you should be more wary of what\'s visible right infront of you.', im5);
+    im2 = new StorySection("I'm glad we agree on this. A humbling experience it is to live this life.", "Enter game", null , "", null);
+    im1 = new StorySection("It's a wild wild world out there...", "Agreed.", im2, "You think?", im3);
   
 }
 

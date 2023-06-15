@@ -125,6 +125,7 @@ function setup() {
   createIntrospectionText1();
   createIntrospectionText2();
   createIntrospectionText3();
+  
   current = im1;
   
   b0 = new Bug('Raymo', 'Gardening', 'free', random(width), random(height), 0, bug1_img);
